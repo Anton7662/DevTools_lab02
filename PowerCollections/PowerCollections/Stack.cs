@@ -26,10 +26,10 @@ namespace PowerCollections
         }
         public Stack()
         {
-            const int defaultCapacity = 10;
+            const int defaultCapacity = 100;
             items = new T[defaultCapacity];
         }
-        public Stack(int capacity)
+        public Stack(int capacity = 100)
         {
             items = new T[capacity];
         }
