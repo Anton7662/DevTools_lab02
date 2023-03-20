@@ -40,7 +40,7 @@ namespace PowerCollections
                 throw new Exception("Stack is full");
             items[count++] = item;
         }
-        public T Pop(
+        public T Pop()
         {
             if (count == 0)
                 throw new Exception("Stack is empty");
