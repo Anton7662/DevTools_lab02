@@ -39,5 +39,6 @@ jobs:
       with:
         artifacts: 'PowerCollections\PowerCollections\bin\Debug\MarkinAnton.PowerCollections.${{ steps.getxml.outputs.info }}.nupkg'
         tag: 'v${{ steps.getxml.outputs.info }}'
+        token: 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
         
         
