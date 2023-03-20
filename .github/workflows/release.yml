@@ -1,4 +1,4 @@
-name: Task03Release
+name: Task03Release1
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
       repository-projects: write
       id-token: write
       packages: write
-      contents: read
+      contents: write
 
     steps:
     - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
       run: dotnet pack 
       working-directory: PowerCollections
     - name: nuGet publish
-      run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/Anton7662/index.json --skip-duplicate
+      run: dotnet nuget push "*.nupkg" --api-key  ${{ secrets.GITHUB_TOKEN }}  --source https://nuget.pkg.github.com/Anton7662/index.json --skip-duplicate
       working-directory: PowerCollections\PowerCollections\bin\Debug\
       
     - name: XML
@@ -39,4 +39,4 @@ jobs:
       with:
         artifacts: 'PowerCollections\PowerCollections\bin\Debug\MarkinAnton.PowerCollections.${{ steps.getxml.outputs.info }}.nupkg'
         tag: 'v${{ steps.getxml.outputs.info }}'
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token:  ${{ secrets.GITHUB_TOKEN }} 
