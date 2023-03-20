@@ -24,7 +24,7 @@ jobs:
       run: dotnet pack 
       working-directory: PowerCollections
     - name: nuGet publish
-      run: dotnet nuget push "*.nupkg" --api-key "${{secrets.PAT}}" --source https://nuget.pkg.github.com/Anton7662/index.json --skip-duplicate
+      run: dotnet nuget push "*.nupkg" --api-key  ${{ secrets.GITHUB_TOKEN }}  --source https://nuget.pkg.github.com/Anton7662/index.json --skip-duplicate
       working-directory: PowerCollections\PowerCollections\bin\Debug\
       
     - name: XML
@@ -39,4 +39,4 @@ jobs:
       with:
         artifacts: 'PowerCollections\PowerCollections\bin\Debug\MarkinAnton.PowerCollections.${{ steps.getxml.outputs.info }}.nupkg'
         tag: 'v${{ steps.getxml.outputs.info }}'
-        token: "${{secrets.PAT}}"
+        token:  ${{ secrets.GITHUB_TOKEN }} 
