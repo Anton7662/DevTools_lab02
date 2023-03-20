@@ -44,7 +44,7 @@ namespace PowerCollections.Tests
         [TestMethod]
         public void DefaultCapacityEquals100AndStackCapacitySetViaOverload()
         {
-            int testCapacity = 10;
+            int testCapacity = 100;
             Stack<int> stack1 = new Stack<int>();
             Stack<string> stack2 = new Stack<string>(testCapacity);
             Assert.AreEqual(stack1.Capacity, stack2.Capacity);
