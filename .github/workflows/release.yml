@@ -37,5 +37,4 @@ jobs:
     - name: create release
       uses: ncipollo/release-action@v1.12.0
       with:
-        artifacts: 'PowerCollections\PowerCollections\bin\Debug\MarkinAnton.PowerCollections.${{ steps.getxml.outputs.info }}.nupkg'
         tag: 'v${{ steps.getxml.outputs.info }}'
