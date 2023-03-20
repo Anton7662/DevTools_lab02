@@ -35,18 +35,9 @@ jobs:
         xml-file: 'PowerCollections\PowerCollections\PowerCollections.csproj'
         xpath: '//Version'
 
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - name: create release
+      uses: ncipollo/release-action@v1.12.0
       with:
-        tag_name: 'v${{ steps.getxml.outputs.info }}'
-        release_name: 'Release v${{ steps.getxml.outputs.info }}'
-        body: |
-          Changes in this Release
-          - First Change
-          - Second Change
-        draft: false
-        prerelease: false
-
+        artifacts: 'PowerCollections\PowerCollections\bin\Debug\MarkinAnton.PowerCollections.${{ steps.getxml.outputs.info }}.nupkg'
+        tag: 'v${{ steps.getxml.outputs.info }}'
+        token: ${{ secrets.release }}
